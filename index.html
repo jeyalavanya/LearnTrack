@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeya Lavanya J - Portfolio</title>
+    <link href="css/base.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- TOGGLE -->
+    <input type="checkbox" id="dark-toggle" />
+
+    <!-- HEADER -->
+    <header class="header">
+      <section class="logo-section">
+        <img class="logo" src="./images/logo.png" alt="Logo" />
+      </section>
+      <nav>
+        <ul>
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#certificates" class="nav-link">Certificates</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+      <label for="dark-toggle" class="theme-toggle"></label>
+    </header>
+
+    <!-- HOME SECTION  -->
+    <section id="home" class="page-section active">
+      <div class="home-grid">
+        <div class="home-text">
+          <h1>Hi, I'm <span class="name">Jeya Lavanya</span></h1>
+          <p>
+            <strong
+              >Senior Lead Product Engineer | Temenos India Pvt Ltd</strong
+            >
+          </p>
+          <p>
+            10+ Years UI Development | TypeScript Lit Expert | Angular | React
+          </p>
+          <div class="social">
+            <a
+              href="https://www.linkedin.com/in/jeya-lavanya-a956a1b0/"
+              target="_blank"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+                alt="LinkedIn"
+                class="icon-img"
+            /></a>
+            <a href="https://github.com/jeyalavanya" target="_blank"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
+                alt="GitHub"
+                class="icon-img"
+            /></a>
+            <a href="https://facebook.com" target="_blank"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/124/124010.png"
+                alt="facebook"
+                class="icon-img"
+            /></a>
+            <a href="mailto:jeyalavanya.j@gmail.com" target="_blank"
+              ><img
+                src="https://cdn-icons-png.flaticon.com/512/2811/2811806.png"
+                alt="Email"
+                class="icon-img"
+            /></a>
+          </div>
+          <a href="./pdf/Lavanya_Resume.pdf" class="resume-btn" download
+            >Download CV</a
+          >
+        </div>
+        <div class="profile-section">
+          <img
+            src="./images/profilePhoto.png"
+            alt="Jeya Lavanya J"
+            class="profile-img"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION  -->
+    <section id="about" class="page-section">
+      <div class="container">
+        <h2>About Me</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <!-- ALWAYS VISIBLE -->
+            <p>
+              <strong
+                >Senior Lead Product Engineer - Temenos India Pvt Ltd
+                (2015-Present)</strong
+              >
+            </p>
+            <p class="margin-left">
+              * Directed front-end architecture with modular design principles
+            </p>
+            <p class="margin-left">
+              * Built schema-driven UI systems using Swagger/OpenAPI metadata
+            </p>
+
+            <!-- HIDDEN PART (READ MORE) -->
+            <div id="more-about" class="about-more">
+              <p class="margin-left">
+                * Custom Lit components with Shadow DOM for reusability &
+                performance
+              </p>
+              <p class="margin-left">
+                * Complex dynamic forms: multi-value fields, nested objects,
+                recursive rendering
+              </p>
+              <p class="margin-left">
+                * WCAG-compliant accessible UI components
+              </p>
+              <p>
+                <strong>
+                  📍 Chennai, India | 📧 jeyalavanya.j@gmail.com | 📱 +91
+                  7305740154
+                </strong>
+              </p>
+              <p><em>T-Star Award Winner - Excellence & Collaboration</em></p>
+            </div>
+
+            <!-- BUTTON -->
+            <a href="#" class="read-more" id="about-toggle">Read More</a>
+          </div>
+
+          <img
+            src="./images/profilePhoto.png"
+            alt="Profile"
+            class="about-img"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION  -->
+    <section id="skills" class="page-section">
+      <div class="container">
+        <h2>Technical Expertise</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="circular-progress" data-progress="95">
+              <span class="progress-text">95%</span>
+            </div>
+            <p>TypeScript Lit Expertise</p>
+          </div>
+          <div class="skill-item">
+            <div class="circular-progress" data-progress="50">
+              <span class="progress-text">50%</span>
+            </div>
+            <p>Angular Development</p>
+          </div>
+          <div class="skill-item">
+            <div class="circular-progress" data-progress="50">
+              <span class="progress-text">50%</span>
+            </div>
+            <p>React Components</p>
+          </div>
+          <div class="skill-item">
+            <div class="circular-progress" data-progress="90">
+              <span class="progress-text">90%</span>
+            </div>
+            <p>HTML5/CSS/JS ES6</p>
+          </div>
+          <div class="skill-item">
+            <div class="circular-progress" data-progress="80">
+              <span class="progress-text">80%</span>
+            </div>
+            <p>UI State Management</p>
+          </div>
+          <div class="skill-item">
+            <div class="circular-progress" data-progress="70">
+              <span class="progress-text">70%</span>
+            </div>
+            <p>JSON/YAML Processing</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES SECTION  -->
+    <section id="certificates" class="page-section">
+      <div class="container">
+        <h2 class="section-title">Certifications & Awards</h2>
+        <p class="section-subtitle">
+          Professional Achievements & Technical Training
+        </p>
+
+        <div class="certs-grid">
+          <div class="cert-card">
+            <div class="cert-icon">⚛️</div>
+            <h3>TypeScript Lit</h3>
+            <p>
+              Web Components Mastery<br /><small>Udemy Training </small>
+            </p>
+            <a href="./pdf/Typescript.pdf" download class="cert-btn"
+              >View Certificate</a
+            >
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">📚</div>
+            <h3>Python</h3>
+            <p>SimpliLearn<br /><small>Python Training Certification</small></p>
+            <a href="./pdf/simpliLearn.pdf" download class="cert-btn"
+              >View Certificate</a
+            >
+          </div>
+
+          <div class="cert-card">
+            <div class="cert-icon">🏆</div>
+            <h3>T-Star Award</h3>
+            <p>Temenos India Pvt Ltd<br /><small>Collaborate</small></p>
+            <a href="./pdf/Tstar.pdf" download class="cert-btn">View Award</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🏆</div>
+            <h3>T-Star Award</h3>
+            <p>Temenos India Pvt Ltd<br /><small>Commit</small></p>
+            <a href="./pdf/award1.pdf" download class="cert-btn">View Award</a>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🏆</div>
+            <h3>T-Star Award</h3>
+            <p>Temenos India Pvt Ltd<br /><small>Care</small></p>
+            <a href="./pdf/award3.pdf" download class="cert-btn">View Award</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION  -->
+    <section id="portfolio" class="page-section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          Banking UIs & dynamic front‑ends built on UXP, Kony Visualizer, Lit
+          and Angular, using semantic HTML, modern CSS and TypeScript
+        </p>
+
+        <div class="projects-grid">
+          <!-- 1. TCXB -->
+          <div class="project-card">
+            <h3>TCXB Internet & Mobile Banking</h3>
+            <p>
+              Built Temenos Connect Internet/Mobile Banking UIs with UXP,
+              integrating T24 APIs for secure, responsive retail banking
+              journeys.
+            </p>
+            <div class="project-tech">
+              <span>UXP</span><span>TCIB/TCMB</span><span>T24 APIs</span>
+            </div>
+          </div>
+
+          <!-- 2. TFO -->
+          <div class="project-card">
+            <h3>TFO Treasury Front Office</h3>
+            <p>
+              Designed treasury front‑office screens on UXP to support trading,
+              limits and deal workflows with high‑performance UI patterns.
+            </p>
+            <div class="project-tech">
+              <span>UXP</span><span>TFO</span><span>UXP</span>
+            </div>
+          </div>
+
+          <!-- 3. Balance Netting -->
+          <div class="project-card">
+            <h3>Balance Netting UI</h3>
+            <p>
+              Developed balance‑netting dashboards on UXP to visualize exposures
+              and netted positions for corporate banking users.
+            </p>
+            <div class="project-tech">
+              <span>UXP</span><span>Banking UI</span>
+            </div>
+          </div>
+
+          <!-- 4. TEP – Kony Visualizer -->
+          <div class="project-card">
+            <h3>TEP – Kony Visualizer</h3>
+            <p>
+              Implemented Temenos Enterprise Product front‑end using Kony
+              Visualizer for omnichannel responsive screens across web and
+              mobile.
+            </p>
+            <div class="project-tech">
+              <span>TEP</span><span>Kony Visualizer</span
+              ><span>Hybrid Web</span>
+            </div>
+          </div>
+
+          <!-- 5. TEP – Lit + TypeScript -->
+          <div class="project-card">
+            <h3>TEP – Lit Web Components</h3>
+            <p>
+              Rebuilt TEP UI with Lit and TypeScript, creating reusable web
+              components and improving load performance and maintainability.
+            </p>
+            <div class="project-tech">
+              <span>Lit</span><span>TypeScript</span><span>Web Components</span>
+            </div>
+          </div>
+
+          <!-- 6. Transact Explorer -->
+          <div class="project-card">
+            <h3>Transact Explorer</h3>
+            <p>
+              Built Angular‑based explorer for Temenos Transact to browse
+              services, metadata and APIs with filterable, drill‑down UI.
+            </p>
+            <div class="project-tech">
+              <span>Angular</span><span>Transact</span>
+            </div>
+          </div>
+
+          <!-- 7. Party UI (YAML Driven) -->
+          <div class="project-card">
+            <h3>Party UI – YAML‑Driven Screens</h3>
+            <p>
+              Engineered dynamic Party UI where layouts and fields are rendered
+              at runtime from YAML definitions, enabling config‑driven screens.
+            </p>
+            <div class="project-tech">
+              <span>YAML</span><span>Dynamic UI</span
+              ><span>Metadata‑Driven</span>
+            </div>
+          </div>
+          <div class="project-card">
+            <h3>Personal Portfolio – HTML & CSS</h3>
+            <p>
+              Responsive single‑page portfolio with dark mode toggle, animated
+              profile image, skills indicators, certificates, and contact form
+              built using semantic HTML and CSS.
+            </p>
+            <div class="project-tech">
+              <span>HTML5</span><span>CSS3</span><span>Responsive</span
+              ><span>Dark Mode</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION-->
+    <section id="contact" class="page-section">
+      <div class="container">
+        <h2>Contact Me!</h2>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="E-mail Address" required />
+          <textarea
+            placeholder="Write Your Message"
+            rows="5"
+            required
+          ></textarea>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- FOOTER  -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <h3>Education</h3>
+            <p>
+              <strong>BE - PSG College of Technology</strong><br />Coimbatore
+              (2011-2015)
+            </p>
+          </div>
+          <div>
+            <h3>Awards</h3>
+            <p><strong>T-Star Award</strong><br />Temenos India Pvt Ltd</p>
+            <p>
+              &copy; 2025 Jeya Lavanya J | Senior Lead Product Engineer -
+              Temenos India
+            </p>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <div class="footer-links">
+              <a href="mailto:Alexa@example.com" class="footer-btn">Email</a>
+              <a href="tel:+1234567890" class="footer-btn">Call</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Navigation
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          document
+            .querySelectorAll(".page-section, .nav-link")
+            .forEach((el) => el.classList.remove("active"));
+          link.classList.add("active");
+          document
+            .getElementById(link.href.split("#")[1])
+            .classList.add("active");
+        });
+      });
+
+      // Circular progress animation
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".circular-progress").forEach((progress) => {
+          const value = progress.dataset.progress;
+          progress.style.setProperty("--progress", value + "%");
+        });
+      });
+
+      // About section - Read More toggle
+      const aboutBtn = document.getElementById("about-toggle");
+      const moreAbout = document.getElementById("more-about");
+
+      aboutBtn.addEventListener("click", function (e) {
+        e.preventDefault();
+        const isOpen = moreAbout.classList.toggle("show");
+        aboutBtn.textContent = isOpen ? "Show Less" : "Read More";
+      });
+    </script>
+  </body>
+</html>
