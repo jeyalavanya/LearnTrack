@@ -1,11 +1,4 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
-
-# consider this file and provide me readme
-
-```markdown
 # Jeya Lavanya J - Portfolio
-
-![Profile](./images/profilePhoto.png)
 
 **Senior Lead Product Engineer** | Temenos India Pvt Ltd | 10+ Yrs UI Development
 
@@ -37,7 +30,7 @@ cd portfolio
 
 ## 📱 Live Demo
 
-[jeyalavanya.github.io/portfolio](https://jeyalavanya.github.io/portfolio)
+NA
 
 ## 📂 Structure
 
