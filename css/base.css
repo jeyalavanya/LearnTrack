@@ -1,0 +1,374 @@
+/**
+ * STUDENT REGISTRATION SYSTEM - STYLESHEET
+ * File: base.css
+ * Responsive design for mobile/tablet/desktop
+ * Features: Gradient background, badge system, validation styling, sticky table header
+ */
+
+/* ============================================================================
+   CSS RESET & BASE STYLES
+   ============================================================================ */
+
+/* Universal reset: Removes default margins/padding, consistent box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================================
+   BODY & LAYOUT
+   ============================================================================ */
+
+/* Main document styling: Typography, gradient background, full viewport height */
+body {
+  font-family: Arial, sans-serif;  /* Clean, readable font */
+  line-height: 1.6;               /* Comfortable line spacing */
+  color: #333;                    /* Dark text for readability */
+  padding: 20px;                  /* Breathing room */
+  /* Eye-catching gradient background (mobile-optimized) */
+  background: linear-gradient(135deg, #667eea 0%, rgba(0, 0, 0, 0.3) 100%);
+  min-height: 100vh;              /* Full viewport height */
+}
+
+/* ============================================================================
+   MAIN CONTAINER
+   ============================================================================ */
+
+/* Centered card layout: White content area with shadow */
+.container {
+  max-width: 1200px;              /* Wide desktop layout */
+  margin: 0 auto;                 /* Perfect centering */
+  background: white;              /* Clean white card */
+  border-radius: 10px;            /* Rounded modern corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Elevated card shadow */
+  overflow: hidden;               /* No overflow outside card */
+}
+
+/* ============================================================================
+   HEADER SECTION
+   ============================================================================ */
+
+/* Top branding section: Navy background with centered content */
+header {
+  background: navy;               /* Professional dark blue */
+  color: white;                   /* White text contrast */
+  text-align: center;             /* Perfect centering */
+  padding: 30px;                  /* Generous vertical space */
+}
+
+/* Main title: Large, prominent heading */
+header h1 {
+  font-size: 2.5em;               /* Hero-sized heading */
+  margin-bottom: 10px;            /* Tight spacing to subtitle */
+}
+
+/* Subtitle: Feature description with subtle transparency */
+header p {
+  font-size: 1.2em;               /* Readable subtitle size */
+  opacity: 0.9;                   /* Subtle fade for hierarchy */
+}
+
+/* ============================================================================
+   FORM SECTION
+   ============================================================================ */
+
+/* Form container: Section padding with bottom border */
+.form-section {
+  padding: 30px;                  /* Consistent section spacing */
+  border-bottom: 1px solid #eee;  /* Visual separation from table */
+}
+
+/* Form grid: Responsive columns (auto-adjusts for screen size) */
+form {
+  display: grid;
+  /* Mobile: 1 column, Desktop: 2+ columns (250px min-width) */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;                      /* Consistent field spacing */
+}
+
+/* ============================================================================
+   FORM ELEMENTS
+   ============================================================================ */
+
+/* Labels: Bold, block-level for clear association */
+label {
+  display: block;                 /* Full width */
+  margin-bottom: 5px;             /* Tight spacing to input */
+  font-weight: bold;              /* Visual hierarchy */
+}
+
+/* Input & Select styling: Consistent form controls */
+input, select {
+  width: 100%;                    /* Full field width */
+  padding: 12px;                  /* Comfortable touch target */
+  border: 2px solid #ddd;         /* Subtle borders */
+  border-radius: 5px;             /* Modern rounded corners */
+  font-size: 16px;                /* Mobile keyboard friendly */
+  transition: border-color 0.3s;  /* Smooth focus animation */
+}
+
+/* Focus state: Blue highlight for accessibility */
+input:focus, select:focus {
+  outline: none;                  /* Remove default outline */
+  border-color: #4a90e2;          /* Brand blue focus ring */
+}
+
+/* Error state: Red border for invalid inputs */
+input.error, select.error {
+  border-color: #e74c3c;          /* Validation feedback */
+}
+
+/* Error messages: Hidden by default, red text */
+.error-msg {
+  color: #e74c3c;                 /* Error color */
+  font-size: 0.9em;               /* Smaller than labels */
+  margin-top: 5px;                /* Space after input */
+  display: none;                  /* Hidden until validation fails */
+}
+
+/* ============================================================================
+   BUTTON STYLES
+   ============================================================================ */
+
+/* Primary buttons: Blue gradient, hover effects */
+button {
+  background: #4a90e2;            /* Primary blue */
+  color: white;                   /* White text */
+  border: none;                   /* No borders */
+  padding: 12px 30px;             /* Comfortable size */
+  border-radius: 5px;             /* Consistent with inputs */
+  cursor: pointer;                /* Hand cursor */
+  font-size: 16px;                /* Readable text */
+  transition: background 0.3s;    /* Smooth hover */
+  grid-column: span 1;            /* Grid layout compatibility */
+}
+
+button:hover {
+  background: #357abd;            /* Darker blue on hover */
+}
+
+/* Secondary clear button: Grey styling */
+.clear-btn {
+  background: #95a5a6;            /* Neutral grey */
+}
+
+.clear-btn:hover {
+  background: #7f8c8d;            /* Darker grey */
+}
+
+/* ============================================================================
+   TABLE SECTION
+   ============================================================================ */
+
+/* Table container: Consistent section padding */
+.table-section {
+  padding: 30px;                  /* Matches form section */
+}
+
+/* Section headings: Blue color for visual hierarchy */
+h2 {
+  margin-bottom: 20px;            /* Space before table */
+  color: #4a90e2;                 /* Brand color */
+}
+
+/* Table structure: Full width, no gaps */
+table {
+  width: 100%;                    /* Full container width */
+  border-collapse: collapse;      /* Remove cell spacing */
+  margin-bottom: 20px;            /* Space after table */
+}
+
+/* Table cells: Consistent padding, left-aligned */
+th, td {
+  padding: 12px;                  /* Comfortable cell spacing */
+  text-align: left;               /* Data alignment */
+  border-bottom: 1px solid #ddd;  /* Row separators */
+}
+
+/* Table headers: Light background, bold text */
+th {
+  background: #f8f9fa;            /* Subtle header background */
+  font-weight: bold;              /* Header emphasis */
+}
+
+/* Row hover effect: Improves usability */
+tr:hover {
+  background: #f8f9fa;            /* Light highlight on hover */
+}
+
+/* ============================================================================
+   SCROLLABLE TABLE
+   ============================================================================ */
+
+/* Table wrapper: Fixed height with vertical scroll */
+#studentTable {
+  max-height: 400px;              /* Scroll after 400px */
+  overflow-y: auto;               /* Vertical scroll only */
+  display: block;                 /* Block for height constraint */
+}
+
+/* Sticky table header: Stays visible when scrolling */
+#studentTable thead {
+  position: sticky;               /* Sticks to top */
+  top: 0;                         /* 0px from top */
+  z-index: 1;                     /* Above scrolling content */
+}
+
+/* ============================================================================
+   BADGE SYSTEM STYLING
+   ============================================================================ */
+
+/* Base badge: Pill-shaped achievement labels */
+.badge {
+  padding: 4px 12px;              /* Compact pill shape */
+  border-radius: 20px;            /* Rounded pill corners */
+  font-size: 14px;                /* Smaller than body text */
+  font-weight: bold;              /* Achievement emphasis */
+  color: white;                   /* High contrast */
+}
+
+/* Silver badge: Achievement level 1 */
+.badge-silver {
+  background: #bdc3c7;            /* Silver grey */
+}
+
+/* Gold badge: Achievement level 2 */
+.badge-gold {
+  background: linear-gradient(45deg, #f39c12, #e67e22); /* Gold gradient */
+}
+
+/* Platinum badge: Achievement level 3 */
+.badge-platinum {
+  background: linear-gradient(45deg, #3498db, #2980b9); /* Platinum blue */
+}
+
+/* ============================================================================
+   RESPONSIVE ACTION BUTTONS
+   ============================================================================ */
+
+/* Actions column: Center-aligned, no wrapping */
+.actions {
+  white-space: nowrap;            /* Keep buttons inline */
+  text-align: center;             /* Center actions */
+}
+
+/* ============================================================================
+   DESKTOP: Full Text Buttons (>1024px)
+   ============================================================================ */
+@media (min-width: 1025px) {
+  .actions button {
+    margin-right: 10px;           /* Button spacing */
+    padding: 8px 16px;            /* Comfortable desktop size */
+    font-size: 14px;              /* Readable text */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;                     /* Icon-text spacing */
+    font-weight: 500;
+  }
+  
+  /* Edit button: Gold gradient */
+  .edit-btn {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+    color: white;
+  }
+  .edit-btn:hover {
+    background: linear-gradient(135deg, #e67e22, #d68910);
+    transform: translateY(-1px);  /* Lift effect */
+  }
+  
+  /* Delete button: Red gradient */
+  .delete-btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+  }
+  .delete-btn:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: translateY(-1px);
+  }
+}
+
+/* ============================================================================
+   MOBILE/TABLET: Icon-Only Buttons (≤1024px)
+   ============================================================================ */
+@media (max-width: 1024px) {
+  .action-icon {
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: all 0.2s;
+    margin: 0 4px;
+    width: 40px;                  /* Fixed touch target */
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;              /* Clear icons */
+  }
+  
+  /* Edit icon styling */
+  .edit-icon {
+    color: #f39c12;
+    background: rgba(243, 156, 18, 0.15); /* Subtle background */
+  }
+  .edit-icon:hover {
+    background: rgba(243, 156, 18, 0.3);
+    transform: scale(1.1);        /* Grow on hover */
+  }
+  
+  /* Delete icon styling */
+  .delete-icon {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.15);
+  }
+  .delete-icon:hover {
+    background: rgba(231, 76, 60, 0.3);
+    transform: scale(1.1);
+  }
+  
+  /* MOBILE: Compact icons */
+  @media (max-width: 640px) {
+    .action-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 14px;
+      padding: 6px;
+    }
+  }
+}
+
+/* Hide text spans on mobile/tablet, show icons only */
+@media (max-width: 1024px) {
+  .text-only { display: none !important; }
+  .icon-only { display: inline-block !important; }
+}
+
+/* ============================================================================
+   MOBILE LAYOUTS
+   ============================================================================ */
+
+/* Mobile: Single column form, smaller header */
+@media (max-width: 640px) {
+  form {
+    grid-template-columns: 1fr;   /* Stack fields vertically */
+  }
+  header h1 {
+    font-size: 2em;               /* Smaller mobile heading */
+  }
+  body {
+    padding: 10px;                /* Less padding on small screens */
+  }
+}
+
+/* Tablet: 2-column form layout */
+@media (min-width: 641px) and (max-width: 1024px) {
+  form {
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+  }
+}
