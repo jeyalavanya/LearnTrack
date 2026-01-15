@@ -87,60 +87,120 @@
         id="errorMsg"
         class="hidden bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-xl shadow-md backdrop-blur-sm animate-pulse"
       ></div>
-              <!-- Alert Banner -->
-        <div id="weatherAlert" class="hidden bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-6 rounded-2xl shadow-2xl backdrop-blur-sm border-l-8 border-yellow-300 animate-bounce"></div>
+      <!-- Alert Banner -->
+      <div
+        id="weatherAlert"
+        class="hidden bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-6 rounded-2xl shadow-2xl backdrop-blur-sm border-l-8 border-yellow-300 animate-bounce"
+      ></div>
 
-        <!-- Current Weather -->
-        <section id="currentWeather" class="hidden bg-white/70 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 overflow-hidden">
-            <div class="text-center mb-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">Current Weather</h2>
-                <div id="currentLocation" class="text-xl md:text-2xl text-gray-600 font-semibold"></div>
+      <!-- Current Weather -->
+      <section
+        id="currentWeather"
+        class="hidden bg-white/70 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 overflow-hidden"
+      >
+        <div class="text-center mb-8">
+          <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2">
+            Current Weather
+          </h2>
+          <div
+            id="currentLocation"
+            class="text-xl md:text-2xl text-gray-600 font-semibold"
+          ></div>
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center"
+        >
+          <div class="text-center">
+            <i
+              id="currentIcon"
+              class="fas fa-cloud text-6xl md:text-8xl text-blue-500 mb-4"
+            ></i>
+            <p
+              id="currentDesc"
+              class="text-xl md:text-2xl font-bold text-gray-800 mb-2"
+            ></p>
+            <p
+              id="currentTemp"
+              class="text-4xl md:text-6xl font-black text-gray-900 mb-1"
+            >
+              --
+            </p>
+            <p id="currentFeels" class="text-lg text-gray-600">
+              Feels like --°
+            </p>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
+              <i class="fas fa-thermometer-half text-2xl text-orange-500"></i>
+              <div>
+                <p class="font-semibold text-gray-800">Humidity</p>
+                <p id="currentHumidity" class="text-2xl font-bold">--%</p>
+              </div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center">
-                <div class="text-center">
-                    <i id="currentIcon" class="fas fa-cloud text-6xl md:text-8xl text-blue-500 mb-4"></i>
-                    <p id="currentDesc" class="text-xl md:text-2xl font-bold text-gray-800 mb-2"></p>
-                    <p id="currentTemp" class="text-4xl md:text-6xl font-black text-gray-900 mb-1">--</p>
-                    <p id="currentFeels" class="text-lg text-gray-600">Feels like --°</p>
-                </div>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
-                        <i class="fas fa-thermometer-half text-2xl text-orange-500"></i>
-                        <div>
-                            <p class="font-semibold text-gray-800">Humidity</p>
-                            <p id="currentHumidity" class="text-2xl font-bold">--%</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
-                        <i class="fas fa-wind text-2xl text-blue-500"></i>
-                        <div>
-                            <p class="font-semibold text-gray-800">Wind</p>
-                            <p id="currentWind" class="text-2xl font-bold">-- km/h</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
-                        <i class="fas fa-eye text-2xl text-gray-600"></i>
-                        <div>
-                            <p class="font-semibold text-gray-800">Visibility</p>
-                            <p id="currentVisibility" class="text-2xl font-bold">-- km</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
-                        <i class="fas fa-eye-dropper text-2xl text-blue-400"></i>
-                        <div>
-                            <p class="font-semibold text-gray-800">Pressure</p>
-                            <p id="currentPressure" class="text-2xl font-bold">-- hPa</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
+              <i class="fas fa-wind text-2xl text-blue-500"></i>
+              <div>
+                <p class="font-semibold text-gray-800">Wind</p>
+                <p id="currentWind" class="text-2xl font-bold">-- km/h</p>
+              </div>
             </div>
-        </section>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
+              <i class="fas fa-eye text-2xl text-gray-600"></i>
+              <div>
+                <p class="font-semibold text-gray-800">Visibility</p>
+                <p id="currentVisibility" class="text-2xl font-bold">-- km</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
+              <i class="fas fa-eye-dropper text-2xl text-blue-400"></i>
+              <div>
+                <p class="font-semibold text-gray-800">Pressure</p>
+                <p id="currentPressure" class="text-2xl font-bold">-- hPa</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <!-- 5-Day Forecast -->
-        <section id="forecastSection" class="hidden">
+      <!-- 5-Day Forecast -->
+      <section id="forecastSection" class="hidden">
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+          <i class="fas fa-calendar-day mr-3 text-blue-500"></i>5-Day Forecast
+        </h2>
+        <div
+          id="forecastCards"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
+        >
+          <!-- Forecast cards will be populated by JavaScript -->
+        </div>
+      </section>
     </main>
+
+    <!-- Custom Error Modal -->
+    <div
+      id="errorModal"
+      class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-2xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto"
+      >
+        <div class="p-8 text-center">
+          <i class="fas fa-exclamation-triangle text-6xl text-red-500 mb-6"></i>
+          <h3 id="modalTitle" class="text-2xl font-bold text-gray-800 mb-4">
+            Error
+          </h3>
+          <p id="modalMessage" class="text-lg text-gray-600 mb-8"></p>
+          <button
+            id="closeModal"
+            class="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
 
     <script src="/LearnTrack/js/weatherForecast.js"></script>
   </body>
