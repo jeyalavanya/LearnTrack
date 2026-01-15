@@ -1,26 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Forecast App</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
-<script>
-  tailwind.config = {
-    theme: { extend: { animation: { 'bounce-slow': 'bounce 2s infinite' } } }
-  }
-</script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen transition-all duration-1000">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: { animation: { "bounce-slow": "bounce 2s infinite" } },
+        },
+      };
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body
+    class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen transition-all duration-1000"
+  >
     <!-- Header -->
     <header class="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-4 py-6">
-            <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                <i class="fas fa-cloud-sun mr-3"></i>Weather Forecast
-            </h1>
-        </div>
+      <div class="max-w-6xl mx-auto px-4 py-6">
+        <h1
+          class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"
+        >
+          <i class="fas fa-cloud-sun mr-3"></i>Weather Forecast
+        </h1>
+      </div>
     </header>
-        <script src="/LearnTrack/js/weatherForecast.js"></script>
-</body>
+    <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
+      <!-- Search Section -->
+      <section class="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-8">
+        <div class="flex flex-col lg:flex-row gap-4 items-center">
+          <!-- Recent Cities Dropdown -->
+          <div class="relative w-full lg:w-1/4">
+            <select
+              id="recentCities"
+              class="w-full p-3 border border-gray-300 rounded-xl bg-white/50 focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none cursor-pointer"
+            >
+              <option value="">Recent Cities</option>
+            </select>
+          </div>
+
+          <!-- Search Input -->
+          <div class="relative flex-1">
+            <input
+              type="text"
+              id="cityInput"
+              placeholder="Enter city name..."
+              class="w-full p-4 pl-12 pr-28 text-lg border-2 border-gray-200 rounded-2xl focus:ring-4 focus:ring-blue-200 focus:border-blue-400 bg-white/60 backdrop-blur-sm transition-all duration-300"
+            />
+            <i
+              class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"
+            ></i>
+            <button
+              id="searchBtn"
+              class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white px-8 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            >
+              Search
+            </button>
+          </div>
+
+          <!-- Geolocation Button -->
+          <button
+            id="geoBtn"
+            class="lg:w-1/4 p-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
+          >
+            <i class="fas fa-location-arrow"></i>
+            My Location
+          </button>
+
+          <!-- Temperature Toggle -->
+          <button
+            id="tempToggle"
+            class="p-4 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            <span id="tempUnit">°C</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Error Message -->
+      <div
+        id="errorMsg"
+        class="hidden bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-xl shadow-md backdrop-blur-sm animate-pulse"
+      ></div>
+    </main>
+
+    <script src="/LearnTrack/js/weatherForecast.js"></script>
+  </body>
 </html>
