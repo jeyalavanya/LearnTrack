@@ -5,8 +5,8 @@
  */
 
 // ===== API CONFIGURATION =====
-const API_KEY = "240598957831f47b7012bbd19431c404";  // OpenWeatherMap API Key
-const API_BASE = "https://api.openweathermap.org/data/2.5";     // Current weather endpoint
+const API_KEY = "240598957831f47b7012bbd19431c404"; // OpenWeatherMap API Key
+const API_BASE = "https://api.openweathermap.org/data/2.5"; // Current weather endpoint
 const FORECAST_BASE = "https://api.openweathermap.org/data/2.5/forecast"; // 5-day forecast endpoint
 
 const elements = {
@@ -17,16 +17,16 @@ const elements = {
   recentCities: document.getElementById("recentCities"),
   tempToggle: document.getElementById("tempToggle"),
   tempUnit: document.getElementById("tempUnit"),
-  
+
   // Status displays
   errorMsg: document.getElementById("errorMsg"),
   weatherAlert: document.getElementById("weatherAlert"),
-  
+
   // Weather sections
   currentWeather: document.getElementById("currentWeather"),
   forecastSection: document.getElementById("forecastSection"),
   forecastCards: document.getElementById("forecastCards"),
-  
+
   // Current weather data displays
   currentLocation: document.getElementById("currentLocation"),
   currentIcon: document.getElementById("currentIcon"),
@@ -37,7 +37,7 @@ const elements = {
   currentWind: document.getElementById("currentWind"),
   currentVisibility: document.getElementById("currentVisibility"),
   currentPressure: document.getElementById("currentPressure"),
-  
+
   // Modal elements
   errorModal: document.getElementById("errorModal"),
   modalTitle: document.getElementById("modalTitle"),
@@ -46,29 +46,29 @@ const elements = {
 };
 
 // ===== APP STATE =====
-let isCelsius = true;                           // Current temperature unit
-let recentCities = JSON.parse(localStorage.getItem("recentCities")) || [];  // Recently searched cities
-let currentWeatherData = null;                  // Currently displayed weather data
+let isCelsius = true; // Current temperature unit
+let recentCities = JSON.parse(localStorage.getItem("recentCities")) || []; // Recently searched cities
+let currentWeatherData = null; // Currently displayed weather data
 
 // ===== WEATHER ICON MAPPING =====
 const weatherIcons = {
-  Clear: "fas fa-sun",        // ☀️ Sunny
-  Clouds: "fas fa-cloud",     // ☁️ Cloudy
-  Rain: "fas fa-cloud-rain",  // 🌧️ Rainy
-  Drizzle: "fas fa-cloud-drizzle",  // 🌦️ Light rain
-  Thunderstorm: "fas fa-bolt",      // ⛈️ Storm
-  Snow: "fas fa-snowflake",         // ❄️ Snow
-  Mist: "fas fa-smog",              // 🌫️ Mist
-  Smoke: "fas fa-smog",             // 💨 Smoke
-  Haze: "fas fa-smog",              // 🌁 Haze
-  Dust: "fas fa-wind",              // 🌪️ Dust
-  Fog: "fas fa-smog",               // 🌫️ Fog
+  Clear: "fas fa-sun", // ☀️ Sunny
+  Clouds: "fas fa-cloud", // ☁️ Cloudy
+  Rain: "fas fa-cloud-rain", // 🌧️ Rainy
+  Drizzle: "fas fa-cloud-drizzle", // 🌦️ Light rain
+  Thunderstorm: "fas fa-bolt", // ⛈️ Storm
+  Snow: "fas fa-snowflake", // ❄️ Snow
+  Mist: "fas fa-smog", // 🌫️ Mist
+  Smoke: "fas fa-smog", // 💨 Smoke
+  Haze: "fas fa-smog", // 🌁 Haze
+  Dust: "fas fa-wind", // 🌪️ Dust
+  Fog: "fas fa-smog", // 🌫️ Fog
 };
 
 // ===== APP INITIALIZATION =====
 document.addEventListener("DOMContentLoaded", function () {
-  initRecentCities();        // Load recent cities from localStorage
-  setupEventListeners();     // Bind all event handlers
+  initRecentCities(); // Load recent cities from localStorage
+  setupEventListeners(); // Bind all event handlers
   loadRecentCitiesDropdown(); // Populate recent cities dropdown
 });
 
@@ -79,18 +79,21 @@ function setupEventListeners() {
   // Search functionality
   elements.searchBtn.addEventListener("click", handleSearch);
   elements.cityInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") handleSearch();  // Enter key triggers search
+    if (e.key === "Enter") handleSearch(); // Enter key triggers search
   });
-  
+
   // Navigation & controls
   elements.geoBtn.addEventListener("click", getCurrentLocation);
   elements.tempToggle.addEventListener("click", toggleTemperatureUnit);
   elements.recentCities.addEventListener("change", handleRecentCitySelect);
   elements.closeModal.addEventListener("click", closeErrorModal);
-  
+
   // Modal outside click to close
   elements.errorModal.addEventListener("click", (e) => {
-    if (e.target === elements.errorModal) closeErrorModal();
+    if (e.target === elements.errorModal) {
+      elements.cityInput.value = ""; // Clear input
+      closeErrorModal();
+    }
   });
 }
 
@@ -112,9 +115,11 @@ async function handleSearch() {
     const weatherData = await fetchWeatherData(city);
     displayWeather(weatherData, city);
     addToRecentCities(city);
-    elements.cityInput.value = "";  // Clear input
+    elements.cityInput.value = ""; // Clear input
   } catch (error) {
-    showError(`City "${city}" not found. Please check the spelling and try again.`);
+    showError(
+      `City "${city}" not found. Please check the spelling and try again.`,
+    );
   }
 }
 
@@ -126,7 +131,7 @@ async function getCurrentLocation() {
     showError("Geolocation not supported by your browser.");
     return;
   }
-  
+
   navigator.geolocation.getCurrentPosition(
     async (position) => {
       try {
@@ -153,10 +158,10 @@ async function getCurrentLocation() {
       showError(message);
     },
     {
-      timeout: 5000,              // 5 second timeout
-      enableHighAccuracy: false,  // Faster location
-      maximumAge: 600000,         // Cache up to 10 minutes
-    }
+      timeout: 45000, // 5 second timeout
+      enableHighAccuracy: false, // Faster location
+      maximumAge: 600000, // Cache up to 10 minutes
+    },
   );
 }
 
@@ -183,7 +188,7 @@ function toggleTemperatureUnit() {
   if (currentWeatherData) {
     displayTemperature(
       currentWeatherData.main.temp,
-      currentWeatherData.main.feels_like
+      currentWeatherData.main.feels_like,
     );
     checkWeatherAlert(currentWeatherData.main.temp);
   }
@@ -243,11 +248,13 @@ async function fetchForecast(city) {
  */
 async function displayWeather(weatherData, locationName) {
   currentWeatherData = weatherData;
-  
+
   // Update location and weather description
   elements.currentLocation.textContent = locationName;
-  elements.currentIcon.className = weatherIcons[weatherData.weather[0].main] || "fas fa-cloud";
-  elements.currentDesc.textContent = weatherData.weather[0].description.toUpperCase();
+  elements.currentIcon.className =
+    weatherIcons[weatherData.weather[0].main] || "fas fa-cloud";
+  elements.currentDesc.textContent =
+    weatherData.weather[0].description.toUpperCase();
 
   // Update all weather statistics
   displayTemperature(weatherData.main.temp, weatherData.main.feels_like);
@@ -318,7 +325,8 @@ function displayForecast(forecastData) {
     const date = new Date(dayKey);
 
     const card = document.createElement("div");
-    card.className = "bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/50 hover:border-blue-200 hover:-translate-y-2";
+    card.className =
+      "bg-white/70 backdrop-blur-md rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 border border-white/50 hover:border-blue-200 hover:-translate-y-2";
     card.innerHTML = `
       <div class="text-center mb-4">
         <p class="text-sm text-gray-500">${date.toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" })}</p>
@@ -349,17 +357,35 @@ function displayForecast(forecastData) {
 function updateWeatherBackground(condition) {
   // Remove all existing background classes
   document.body.classList.remove(
-    "rainy-bg", "sunny-bg", "cloudy-bg", "default-bg",
-    "bg-gradient-to-br", "from-gray-600", "via-blue-800", "to-gray-900",
-    "from-yellow-200", "via-orange-200", "to-pink-200"
+    "rainy-bg",
+    "sunny-bg",
+    "cloudy-bg",
+    "default-bg",
+    "bg-gradient-to-br",
+    "from-gray-600",
+    "via-blue-800",
+    "to-gray-900",
+    "from-yellow-200",
+    "via-orange-200",
+    "to-pink-200",
   );
 
   // Apply new background class based on weather
-  const bgClass = condition === "Rain" ? "rainy-bg" :
-                  condition === "Clear" ? "sunny-bg" :
-                  condition === "Clouds" ? "cloudy-bg" : "default-bg";
+  const bgClass =
+    condition === "Rain"
+      ? "rainy-bg"
+      : condition === "Clear"
+        ? "sunny-bg"
+        : condition === "Clouds"
+          ? "cloudy-bg"
+          : "default-bg";
 
-  document.body.classList.add("min-h-screen", "transition-all", "duration-1000", bgClass);
+  document.body.classList.add(
+    "min-h-screen",
+    "transition-all",
+    "duration-1000",
+    bgClass,
+  );
 }
 
 /**
@@ -401,9 +427,11 @@ function checkWeatherAlert(tempC) {
  */
 function addToRecentCities(city) {
   // Remove existing instance of this city (avoid duplicates)
-  recentCities = recentCities.filter((c) => c.toLowerCase() !== city.toLowerCase());
-  recentCities.unshift(city);  // Add to beginning
-  recentCities = recentCities.slice(0, 5);  // Keep only last 5
+  recentCities = recentCities.filter(
+    (c) => c.toLowerCase() !== city.toLowerCase(),
+  );
+  recentCities.unshift(city); // Add to beginning
+  recentCities = recentCities.slice(0, 5); // Keep only last 5
   localStorage.setItem("recentCities", JSON.stringify(recentCities));
   loadRecentCitiesDropdown();
 }
@@ -441,8 +469,6 @@ function showError(message) {
   elements.modalTitle.textContent = "Weather Data Unavailable";
   elements.modalMessage.textContent = message;
   elements.errorModal.classList.remove("hidden");
-
-  setTimeout(hideError, 10000);  // Auto-hide after 10 seconds
 }
 
 /**
@@ -458,13 +484,16 @@ function hideError() {
  */
 function closeErrorModal() {
   elements.errorModal.classList.add("hidden");
+  hideLoading();
+  hideError();
 }
 
 /**
  * Show loading state on buttons
  */
 function showLoading() {
-  elements.searchBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Searching...';
+  elements.searchBtn.innerHTML =
+    '<i class="fas fa-spinner fa-spin mr-2"></i>Searching...';
   elements.searchBtn.disabled = true;
   elements.geoBtn.disabled = true;
 }
