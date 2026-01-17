@@ -1,19 +1,28 @@
 <!doctype html>
 <html lang="en">
+  <!-- ===== HEAD SECTION ===== -->
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Forecast App</title>
+
+    <!-- Tailwind CSS CDN (Development Only - Remove for Production) -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+    <!-- Custom Tailwind Config for animations -->
     <script>
       tailwind.config = {
         theme: {
-          extend: { animation: { "bounce-slow": "bounce 2s infinite" } },
+          extend: {
+            animation: { "bounce-slow": "bounce 2s infinite" },
+          },
         },
       };
     </script>
-    <!-- CUSTOM WEATHER BACKGROUND CLASSES 👇 -->
+
+    <!-- CUSTOM WEATHER BACKGROUND GRADIENTS -->
     <style>
+      /* Rainy weather: Dark blue-gray gradient */
       .rainy-bg {
         background: linear-gradient(
           to bottom right,
@@ -22,7 +31,7 @@
           #1f2937
         ) !important;
       }
-
+      /* Sunny weather: Warm orange-pink gradient */
       .sunny-bg {
         background: linear-gradient(
           to bottom right,
@@ -31,7 +40,7 @@
           #fca5a5
         ) !important;
       }
-
+      /* Cloudy weather: Cool gray gradient */
       .cloudy-bg {
         background: linear-gradient(
           to bottom right,
@@ -40,7 +49,7 @@
           #6b7280
         ) !important;
       }
-
+      /* Default clear sky: Light blue gradient */
       .default-bg {
         background: linear-gradient(
           to bottom right,
@@ -49,6 +58,8 @@
         ) !important;
       }
     </style>
+
+    <!-- Font Awesome Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -58,7 +69,7 @@
   <body
     class="font-sans bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen transition-all duration-1000"
   >
-    <!-- Header -->
+    <!-- ===== HEADER SECTION ===== -->
     <header class="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
       <div class="max-w-6xl mx-auto px-4 py-6">
         <h1
@@ -69,11 +80,12 @@
       </div>
     </header>
 
+    <!-- ===== MAIN CONTENT ===== -->
     <main class="max-w-6xl mx-auto px-4 py-8 space-y-8">
-      <!-- Search Section -->
+      <!-- ===== SEARCH & CONTROLS SECTION ===== -->
       <section class="bg-white/70 backdrop-blur-md rounded-2xl shadow-xl p-8">
         <div class="flex flex-col lg:flex-row gap-4 items-center">
-          <!-- Recent Cities Dropdown -->
+          <!-- Recent Cities Dropdown - Stores last 5 searched cities -->
           <div class="relative w-full lg:w-1/4">
             <select
               id="recentCities"
@@ -83,7 +95,7 @@
             </select>
           </div>
 
-          <!-- Search Input -->
+          <!-- Main Search Input with Search Icon -->
           <div class="relative flex-1">
             <input
               type="text"
@@ -102,7 +114,7 @@
             </button>
           </div>
 
-          <!-- Geolocation Button -->
+          <!-- Geolocation Button - Uses browser GPS -->
           <button
             id="geoBtn"
             class="lg:w-1/4 p-4 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2"
@@ -111,7 +123,7 @@
             My Location
           </button>
 
-          <!-- Temperature Toggle -->
+          <!-- Temperature Unit Toggle (Celsius/Fahrenheit) -->
           <button
             id="tempToggle"
             class="p-4 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white rounded-2xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
@@ -121,19 +133,19 @@
         </div>
       </section>
 
-      <!-- Error Message -->
+      <!-- Error Message Display -->
       <div
         id="errorMsg"
         class="hidden bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-xl shadow-md backdrop-blur-sm animate-pulse"
       ></div>
 
-      <!-- Alert Banner -->
+      <!-- Weather Alert Banner (Extreme temperatures) -->
       <div
         id="weatherAlert"
         class="hidden bg-gradient-to-r from-orange-500 to-red-600 text-white px-8 py-6 rounded-2xl shadow-2xl backdrop-blur-sm border-l-8 border-yellow-300 animate-bounce"
       ></div>
 
-      <!-- Current Weather -->
+      <!-- ===== CURRENT WEATHER SECTION ===== -->
       <section
         id="currentWeather"
         class="hidden bg-white/70 backdrop-blur-md rounded-3xl shadow-2xl p-8 md:p-12 overflow-hidden"
@@ -147,9 +159,12 @@
             class="text-xl md:text-2xl text-gray-600 font-semibold"
           ></div>
         </div>
+
+        <!-- Weather Stats Grid -->
         <div
           class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-center"
         >
+          <!-- Main Weather Icon & Temperature -->
           <div class="text-center">
             <i
               id="currentIcon"
@@ -169,6 +184,8 @@
               Feels like --°
             </p>
           </div>
+
+          <!-- Humidity & Wind Stats -->
           <div class="space-y-4">
             <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
               <i class="fas fa-thermometer-half text-2xl text-orange-500"></i>
@@ -185,6 +202,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Visibility & Pressure Stats -->
           <div class="space-y-4">
             <div class="flex items-center gap-4 p-4 bg-gray-50/50 rounded-xl">
               <i class="fas fa-eye text-2xl text-gray-600"></i>
@@ -204,7 +223,7 @@
         </div>
       </section>
 
-      <!-- 5-Day Forecast -->
+      <!-- ===== 5-DAY FORECAST SECTION ===== -->
       <section id="forecastSection" class="hidden">
         <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
           <i class="fas fa-calendar-day mr-3 text-blue-500"></i>5-Day Forecast
@@ -213,12 +232,12 @@
           id="forecastCards"
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6"
         >
-          <!-- Forecast cards will be populated by JavaScript -->
+          <!-- Forecast cards dynamically populated by JavaScript -->
         </div>
       </section>
     </main>
 
-    <!-- Custom Error Modal -->
+    <!-- ===== ERROR MODAL (Fallback for critical errors) ===== -->
     <div
       id="errorModal"
       class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4"
@@ -241,7 +260,6 @@
         </div>
       </div>
     </div>
-
     <script src="/LearnTrack/js/weatherForecast.js"></script>
   </body>
 </html>
