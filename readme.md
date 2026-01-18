@@ -46,11 +46,9 @@ text
 3. Copy API key from dashboard
 Configure API Key
 Open weatherForecast.js and replace line 3:
-
 javascript:
 ## ⚠️ CRITICAL: Replace API Key (MUST DO)
 const API_KEY = "YOUR_API_KEY_HERE";  // ← Replace this
-Launch Application
 
 Usage Guide
 Primary Interactions
