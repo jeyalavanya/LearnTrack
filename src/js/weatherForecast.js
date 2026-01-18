@@ -5,7 +5,7 @@
  */
 
 // ===== API CONFIGURATION =====
-const API_KEY = "240598957831f47b7012bbd19431c404"; // OpenWeatherMap API Key
+const API_KEY = "YOUR_API_KEY_HERE"; // OpenWeatherMap API Key
 const API_BASE = "https://api.openweathermap.org/data/2.5"; // Current weather endpoint
 const FORECAST_BASE = "https://api.openweathermap.org/data/2.5/forecast"; // 5-day forecast endpoint
 
@@ -158,7 +158,7 @@ async function getCurrentLocation() {
       showError(message);
     },
     {
-      timeout: 45000, // 5 second timeout
+      timeout: 45000, // 45 second timeout
       enableHighAccuracy: false, // Faster location
       maximumAge: 600000, // Cache up to 10 minutes
     },

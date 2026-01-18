@@ -36,7 +36,7 @@ Internet connection for OpenWeatherMap API calls
 
 Step-by-Step Deployment
 Download Files
-Place index.html and weatherForecast.js in the same directory.
+Place index.html and output.css / weatherForecast.js in the src folder of same directory.
 
 Obtain API Key (Free)
 
@@ -47,8 +47,9 @@ text
 Configure API Key
 Open weatherForecast.js and replace line 3:
 
-javascript
-const API_KEY = "your_api_key_here";  // Replace with your key
+javascript:
+## ⚠️ CRITICAL: Replace API Key (MUST DO)
+const API_KEY = "YOUR_API_KEY_HERE";  // ← Replace this
 Launch Application
 
 Usage Guide
