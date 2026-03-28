@@ -61,6 +61,7 @@ function App() {
 
   return (
     <div className="app">
+      <Header />
       <ToDoList
         todos={todos}
         addTodo={addTodo}
