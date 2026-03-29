@@ -12,15 +12,19 @@ const BookDetails = () => {
   if (!book) return <div className="container"><h1>Book not found</h1></div>;
 
   return (
-    <div>
-      <div className="container">
-        <h1>{book.title}</h1>
-        <p><strong>Author:</strong> {book.author}</p>
-        <p><strong>Category:</strong> {book.category}</p>
-        <p><strong>Description:</strong> {book.description}</p>
-        <p><strong>Rating:</strong> ⭐ {book.rating}/5</p>
-        <Link to="/books" className="btn">Back to Browse</Link>
-      </div>
+    <div className="container">
+      <section className="book-details">
+        <article className="details-panel">
+          <h1>{book.title}</h1>
+          <div className="book-meta">
+            <span><strong>Author : </strong> {book.author}</span>
+            <span><strong>Category : </strong> {book.category}</span>
+          </div>
+          <p className="book-description">{book.description}</p>
+          <div>⭐ {book.rating}/5</div>
+          <Link to="/books" className="btn">Back to Browse</Link>
+        </article>
+      </section>
     </div>
   );
 };
