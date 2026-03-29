@@ -4,6 +4,8 @@
 
 1. Install dependencies:
 
+   Navigate inside todo-app folder
+   
    ```bash
    npm install
    ```
