@@ -1,6 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import NavBar from '../components/NavBar';
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -10,7 +9,6 @@ const BookDetails = () => {
 
   return (
     <div>
-      <NavBar />
       <div className="container">
         <h1>{book.title}</h1>
         <p><strong>Author:</strong> {book.author}</p>

@@ -2,7 +2,6 @@ import { useSelector } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import BookCard from '../components/BookCard';
-import NavBar from '../components/NavBar';
 
 const BrowseBooks = () => {
   const { category } = useParams();
@@ -21,7 +20,6 @@ const BrowseBooks = () => {
 
   return (
     <div>
-      <NavBar />
       <div className="container">
         <h1>{category ? `${category} Books` : 'All Books'}</h1>
         <input 

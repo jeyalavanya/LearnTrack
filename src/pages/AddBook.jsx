@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addBook } from '../redux/bookSlice';
-import NavBar from '../components/NavBar';
 import { dummyBooks } from '../data/dummyBooks'; // Reuse from dummy
 
 const categoriesSet = [...new Set(dummyBooks.map(b => b.category))];
@@ -34,7 +33,6 @@ const AddBook = () => {
 
   return (
     <div>
-      <NavBar />
       <div className="form-container">
         <h1 style={{textAlign: 'center', marginBottom: '2rem'}}>Add New Book</h1>
         <form onSubmit={handleSubmit}>
