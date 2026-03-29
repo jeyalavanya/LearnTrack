@@ -7,7 +7,17 @@ const popular = dummyBooks.slice(0, 4);
 
 const Home = () => (
   <div className="container">
-    <h1>Welcome to Online Library</h1>
+    <section className="hero">
+      <div>
+        <h1>Discover your next favorite book with style.</h1>
+        <p>Browse premium collections, explore top categories, and keep your library organized in a sleek modern interface.</p>
+      </div>
+      <div className="hero-actions">
+        <Link to="/books" className="btn">Explore Books</Link>
+        <Link to="/add-book" className="btn">Add New Book</Link>
+      </div>
+    </section>
+
     <div className="categories">
       <h2>Browse by Category:</h2>
       <ul>
@@ -16,7 +26,7 @@ const Home = () => (
         ))}
       </ul>
     </div>
-    <div>
+    <div className='categories'>
       <h2>Popular Books</h2>
       <div className="popular-grid">
         {popular.map(book => <BookCard key={book.id} book={book} />)}
