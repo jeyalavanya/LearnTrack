@@ -23,7 +23,9 @@ function ToDoList({ todos, addTodo, toggleTodo, deleteTodo, startEdit, updateEdi
           placeholder="What needs to be done?"
           className="todo-input"
         />
-        <button type="submit" className="add-button">➕ Add Task</button>
+        <button type="submit" className="add-button">
+          Add Task
+        </button>
       </form>
 
       {/* TODO LIST - MAP FUNCTION */}

@@ -33,8 +33,8 @@ function ToDoItem({ todo, toggleTodo, deleteTodo, startEdit, updateEditText, sav
       <span className="todo-text" onClick={() => toggleTodo(todo.id)}>
         {todo.text}
       </span>
-      <button onClick={() => startEdit(todo.id)} className="edit-btn">✏️</button>
-      <button onClick={() => deleteTodo(todo.id)} className="delete-btn">🗑️</button>
+      <button onClick={() => startEdit(todo.id)} className="edit-btn">Edit</button>
+      <button onClick={() => deleteTodo(todo.id)} className="delete-btn">Delete</button>
     </li>
   );
 }
