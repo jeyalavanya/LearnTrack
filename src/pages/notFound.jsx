@@ -1,6 +1,9 @@
+// notFound.jsx
+// Fallback page when the route does not match any defined path.
 import { Link, useLocation } from 'react-router-dom';
 
 const NotFound = () => {
+  // Show the invalid path so users know what failed.
   const location = useLocation();
   return (
     <div className="container" style={{textAlign: 'center', paddingTop: '4rem'}}>

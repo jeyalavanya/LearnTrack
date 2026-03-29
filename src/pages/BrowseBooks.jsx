@@ -1,3 +1,5 @@
+// BrowseBooks.jsx
+// Browse and search books from the library collection.
 import { useSelector } from 'react-redux';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
@@ -6,10 +8,12 @@ import BookCard from '../components/BookCard';
 const BrowseBooks = () => {
   const { category } = useParams();
   const [searchParams] = useSearchParams();
+  // Read the optional ?q= search query from the URL.
   const search = searchParams.get('q') || '';
   const [localSearch, setLocalSearch] = useState(search);
   const books = useSelector(state => state.books.list);
 
+  // Filter books by category and search query.
   const filtered = books.filter(book => {
     const matchesCat = !category || book.category === category;
     const matchesSearch = !search && !localSearch || 

@@ -1,3 +1,5 @@
+// main.jsx
+// Bootstraps the React app and connects the Redux store.
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'

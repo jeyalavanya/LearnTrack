@@ -1,3 +1,5 @@
+// dummyBooks.js
+// Sample books used as initial app data for browsing and filtering.
 export const dummyBooks = [
   { id: '1', title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', category: 'Fiction', description: 'A classic novel of love and ambition.', rating: 4.2 },
   { id: '2', title: '1984', author: 'George Orwell', category: 'Sci-Fi', description: 'Dystopian tale of surveillance.', rating: 4.7 },

@@ -1,7 +1,10 @@
+// NavBar.jsx
+// Renders the top navigation menu and marks the active route.
 import { Link, useLocation } from 'react-router-dom';
 
 const NavBar = () => {
   const location = useLocation();
+  // Use the current route to highlight the active navigation item.
   return (
     <nav className="navbar">
       <div className="nav-links">

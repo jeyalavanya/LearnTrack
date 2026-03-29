@@ -1,9 +1,12 @@
+// AddBook.jsx
+// Page for creating a new book entry and adding it to the library.
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addBook } from '../redux/bookSlice';
 import { dummyBooks } from '../data/dummyBooks'; // Reuse from dummy
 
+// Build a unique category list from the sample books.
 const categoriesSet = [...new Set(dummyBooks.map(b => b.category))];
 
 const AddBook = () => {
@@ -12,6 +15,7 @@ const AddBook = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Validate the form before sending a new book to the store.
   const validate = () => {
     const newErrors = {};
     if (!formData.title.trim()) newErrors.title = 'Title is required';

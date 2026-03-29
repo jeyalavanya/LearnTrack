@@ -1,7 +1,10 @@
+// Home.jsx
+// Landing page showcasing popular books and category navigation.
 import { Link } from 'react-router-dom';
 import { dummyBooks } from '../data/dummyBooks';
 import BookCard from '../components/BookCard';
 
+// Build a unique category list and pick the first four popular books.
 const categories = [...new Set(dummyBooks.map(b => b.category))];
 const popular = dummyBooks.slice(0, 4);
 

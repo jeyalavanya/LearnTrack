@@ -1,3 +1,5 @@
+/* styles.css
+   Global light elite theme styles for the library UI. */
 :root {
   --bg: #f8fafc;
   --surface: rgba(255, 255, 255, 0.92);
@@ -11,6 +13,7 @@
   --radius: 24px;
 }
 
+/* Base reset for all elements. */
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +24,7 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Page background and body typography. */
 body {
   min-height: 100vh;
   font-family: 'Inter', system-ui, sans-serif;
@@ -35,6 +39,7 @@ body {
   width: 100%;
 }
 
+/* Decorative ambient lighting overlay. */
 body::before {
   content: '';
   position: fixed;
@@ -44,11 +49,13 @@ body::before {
   pointer-events: none;
 }
 
+/* Link reset styling. */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Navigation bar styling. */
 .navbar {
   display: flex;
   align-items: center;
@@ -98,11 +105,13 @@ a {
   transform: translateY(-1px);
 }
 
+/* Page layout container. */
 .container {
   width: min(1200px, calc(100% - 2rem));
   margin: 0 auto 2.5rem;
 }
 
+/* Hero section for the landing page. */
 .hero {
   display: grid;
   gap: 1.5rem;
@@ -131,6 +140,7 @@ a {
   margin-top: 1.5rem;
 }
 
+/* Category section styling. */
 .categories {
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(148, 163, 184, 0.28);
@@ -170,6 +180,7 @@ a {
   color: #0f172a;
 }
 
+/* Grid layouts for book cards. */
 .grid,
 .popular-grid {
   display: grid;
@@ -177,6 +188,7 @@ a {
   gap: 1.5rem;
 }
 
+/* Book card styling. */
 .card {
   position: relative;
   overflow: hidden;
@@ -219,6 +231,7 @@ a {
   color: #0f172a;
 }
 
+/* Search input styling. */
 .search-input {
   width: 100%;
   max-width: 560px;
@@ -241,6 +254,7 @@ a {
   background: #ffffff;
 }
 
+/* Form panel styling. */
 .form-container {
   max-width: 760px;
   margin: 0 auto 3rem;
@@ -291,6 +305,7 @@ a {
   background: #ffffff;
 }
 
+/* Validation error text style. */
 .error {
   color: #fda4af;
   font-size: 0.95rem;
@@ -298,6 +313,7 @@ a {
   display: block;
 }
 
+/* Primary button styles. */
 .btn {
   display: inline-flex;
   align-items: center;

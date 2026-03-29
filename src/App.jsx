@@ -1,3 +1,5 @@
+// App.jsx
+// Main router wrapper for page navigation.
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import BrowseBooks from './pages/BrowseBooks';
@@ -8,6 +10,7 @@ import NavBar from './components/NavBar';
 
 const AppContent = () => {
   const location = useLocation();
+  // Do not render the navbar on the unmatched route fallback.
   const showNav = location.pathname !== '*';
   return (
     <>

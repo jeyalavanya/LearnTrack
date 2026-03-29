@@ -1,10 +1,14 @@
+// BookDetails.jsx
+// Displays details for a single selected book.
 import { useParams, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const BookDetails = () => {
   const { id } = useParams();
+  // Look up the selected book by id from Redux state.
   const book = useSelector(state => state.books.list.find(b => b.id === id));
 
+  // If there is no matching book, show a simple error page.
   if (!book) return <div className="container"><h1>Book not found</h1></div>;
 
   return (
